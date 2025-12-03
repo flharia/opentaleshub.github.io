@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Tales Hub - Free Stories</title>
+    <style>
+        /* DARK THEME - Perfect for night reading */
+        :root {
+            --bg: #0f0f0f;
+            --text: #e0e0e0;
+            --accent: #2bbc8a;
+            --card: #1a1a1a;
+            --border: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: var(--accent);
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(43, 188, 138, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+        
+        /* Story Cards */
+        .stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .story-card {
+            background: var(--card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--accent);
+        }
+        
+        .story-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .story-content {
+            padding: 20px;
+        }
+        
+        .story-content h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .story-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* Features */
+        .features {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border: 1px solid var(--border);
+        }
+        
+        .features h2 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .feature-list li {
+            padding: 10px;
+            border-left: 3px solid var(--accent);
+            background: rgba(43, 188, 138, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stories {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 80%;
+                text-align: center;
+            }
+        }
+        
+        /* Reading Controls */
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .control-btn {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>📚 Open Tales Hub</h1>
+        <p class="tagline">Free stories • Dark theme • Perfect for night reading</p>
+        
+        <!-- Navigation -->
+        <nav>
+            <a href="#stories">Browse Stories</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="https://github.com/flharia" target="_blank">GitHub</a>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Message -->
+        <section style="text-align: center; margin: 40px 0;">
+            <h2 style="color: #2bbc8a; margin-bottom: 20px;">Welcome Story Lovers!</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                Dive into a collection of free stories designed for comfortable night reading. 
+                All stories are free to read, with a dark theme to protect your eyes.
+            </p>
+        </section>
+        
+        <!-- Story Cards -->
+        <section id="stories">
+            <h2 style="color: #2bbc8a; margin-bottom: 30px; border-bottom: 2px solid #2bbc8a; padding-bottom: 10px;">
+                Featured Stories
+            </h2>
+            
+            <div class="stories">
+                <!-- Story 1 -->
+                <div class="story-card">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&auto=format&fit=crop" 
+                         alt="Fantasy Story" class="story-image">
+                    <div class="story-content">
+                        <h3>The Lost Kingdom</h3>
+                        <p>A fantasy adventure about a forgotten realm and ancient magic. Follow Elara's journey through mysterious lands.</p>
+                        <div class="story-meta">
+                            <span>Fantasy</span>
+                            <span>12 Chapters</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story 2 -->
+                <div class="story-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop" 
+                         alt="Mystery Story" class="story-image">
+                    <div class="story-content">
+                        <h3>Midnight Shadows</h3>
+                        <p>A detective story set in 1920s New York. Solve the mystery of the disappearing heirlooms.</p>
+                        <div class="story-meta">
+                            <span>Mystery</span>
+                            <span>8 Chapters</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story 3 -->
+                <div class="story-card">
+                    <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&auto=format&fit=crop" 
+                         alt="Sci-Fi Story" class="story-image">
+                    <div class="story-content">
+                        <h3>Beyond the Stars</h3>
+                        <p>Space exploration in the year 2150. Join Captain Rey on a mission to discover new worlds.</p>
+                        <div class="story-meta">
+                            <span>Sci-Fi</span>
+                            <span>15 Chapters</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features -->
+        <section id="features" class="features">
+            <h2>✨ Reading Features</h2>
+            <ul class="feature-list">
+                <li>🌙 Dark theme optimized for night reading</li>
+                <li>📱 Mobile & tablet friendly</li>
+                <li>🔤 Adjustable font sizes</li>
+                <li>📊 Reading progress tracking</li>
+                <li>📖 Table of contents for each story</li>
+                <li>💾 Save reading position</li>
+                <li>🎨 Comfortable color schemes</li>
+                <li>⚡ Fast loading, no ads</li>
+            </ul>
+        </section>
+        
+        <!-- About -->
+        <section id="about" style="margin: 50px 0;">
+            <h2 style="color: #2bbc8a; margin-bottom: 20px;">About This Site</h2>
+            <p>Created by <strong>flharia</strong> as a free storytelling platform. All stories are original works shared for free.</p>
+            <p style="margin-top: 20px;">
+                <strong>How to add your stories:</strong> Coming soon! We'll add a simple interface to upload stories without coding.
+            </p>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Open Tales Hub • Created by flharia</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">
+            This site is built with pure HTML/CSS and hosted free on GitHub Pages
+        </p>
+    </footer>
+    
+    <!-- Reading Controls -->
+    <div class="controls">
+        <button class="control-btn" onclick="increaseFont()">A+</button>
+        <button class="control-btn" onclick="decreaseFont()">A-</button>
+        <button class="control-btn" onclick="toggleTheme()">🌙</button>
+    </div>
+    
+    <script>
+        // Font size controls
+        let currentFontSize = 16;
+        
+        function increaseFont() {
+            currentFontSize += 1;
+            document.body.style.fontSize = currentFontSize + 'px';
+            localStorage.setItem('fontSize', currentFontSize);
+        }
+        
+        function decreaseFont() {
+            if (currentFontSize > 12) {
+                currentFontSize -= 1;
+                document.body.style.fontSize = currentFontSize + 'px';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        }
+        
+        // Theme toggle
+        function toggleTheme() {
+            const root = document.documentElement;
+            if (root.style.getPropertyValue('--bg') === '#ffffff') {
+                // Switch to dark
+                root.style.setProperty('--bg', '#0f0f0f');
+                root.style.setProperty('--text', '#e0e0e0');
+                root.style.setProperty('--card', '#1a1a1a');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light
+                root.style.setProperty('--bg', '#ffffff');
+                root.style.setProperty('--text', '#333333');
+                root.style.setProperty('--card', '#f5f5f5');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Load saved preferences
+        window.onload = function() {
+            // Load font size
+            const savedSize = localStorage.getItem('fontSize');
+            if (savedSize) {
+                currentFontSize = parseInt(savedSize);
+                document.body.style.fontSize = currentFontSize + 'px';
+            }
+            
+            // Load theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                toggleTheme(); // Switch to light if saved
+            }
+        }
+        
+        // Simple page load message
+        console.log('Open Tales Hub loaded successfully!');
+    </script>
+</body>
+</html>
